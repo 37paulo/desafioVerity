@@ -1,0 +1,22 @@
+name: Cypress Tests
+
+on: [push]
+
+jobs:
+  cypress-electron-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v2.7.0
+        
+      - name: versao node
+        run: 'node18'
+        
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Run E2E tests
+        run: npm cypress run
+        
+       
+    
