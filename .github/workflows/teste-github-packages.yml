@@ -9,9 +9,6 @@ jobs:
       - name: Get code
         uses: actions/checkout@v2.7.0
         
-      - name: versao node
-        run: 'node18'
-        
       - name: Install dependencies
         run: npm install
         
