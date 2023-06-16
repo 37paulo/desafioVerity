@@ -1,16 +1,19 @@
-stages:
-  - test
+name: Cypress Tests
 
-test:
-  image: node:latest
-  stage: test
-  script:
-    # install dependencies
-    - npm ci
-    # start the server in the background
-    - npm start &
-    # run Cypress tests
-    - npm run e2e
+on: [push]
+
+jobs:
+  cypress-electron-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v2.7.0
+        
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Run E2E tests
+        run: npm cypress run
         
        
     
